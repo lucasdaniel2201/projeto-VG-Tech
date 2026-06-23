@@ -1,5 +1,6 @@
 import type { Request, Response, NextFunction } from 'express';
 import type { ZodSchema } from 'zod';
+import { ZodError } from 'zod';
 import { AppError } from './error-handler.js';
 
 /**
@@ -17,11 +18,28 @@ export function validate(
     const result = schema.safeParse(req[source]);
 
     if (!result.success) {
-      const messages = result.error.errors
-        .map((e) => `${e.path.join('.')}: ${e.message}`)
-        .join('; ');
+      // Fallback: extrai mensagens do ZodError.message (JSON string) ou usa o erro bruto
+      let formattedMessage = 'Erro de validação';
 
-      next(new AppError(messages, 400, result.error.errors));
+      if (result.error instanceof ZodError) {
+        try {
+          // O ZodError armazena os issues como string JSON em .message
+          const issues = JSON.parse(result.error.message) as Array<{
+            path: string[];
+            message: string;
+          }>;
+          formattedMessage = issues
+            .map(
+              (e) =>
+                `${e.path.length ? e.path.join('.') + ': ' : ''}${e.message}`,
+            )
+            .join('; ');
+        } catch {
+          formattedMessage = result.error.message;
+        }
+      }
+
+      next(new AppError(formattedMessage, 400, result.error));
       return;
     }
 
