@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VG Tech API</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 600px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #6366f1, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin: 0.25rem;
+    }
+    .badge-ts { background: #3178c6; color: #fff; }
+    .badge-node { background: #5fa04e; color: #fff; }
+    .badge-express { background: #6c63ff; color: #fff; }
+    p { color: #94a3b8; margin: 1rem 0; line-height: 1.6; }
+    .links { margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    a {
+      color: #818cf8;
+      text-decoration: none;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+    a:hover { background: #1e293b; border-color: #6366f1; }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #475569;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>VG Tech API</h1>
+    <div>
+      <span class="badge badge-ts">TypeScript</span>
+      <span class="badge badge-node">Node.js</span>
+      <span class="badge badge-express">Express</span>
+    </div>
+    <p>
+      API REST desenvolvida como projeto de estudo, demonstrando boas práticas
+      de backend com TypeScript, validação de dados, documentação interativa e
+      testes automatizados.
+    </p>
+    <div class="links">
+      <a href="/docs">Swagger Docs</a>
+      <a href="/health">Health Check</a>
+      <a href="/produtos">API Produtos</a>
+      <a href="https://github.com/lucasdaniel2201/projeto-VG-Tech" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <footer>
+      &copy; 2025 Lucas Daniel &mdash; Projeto de portfólio
+    </footer>
+  </div>
+</body>
+</html>
