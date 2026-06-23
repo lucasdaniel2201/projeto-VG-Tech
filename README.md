@@ -6,7 +6,7 @@
 ![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen)
 ![TypeScript](https://img.shields.io/badge/typescript-5.8-blue)
 ![Express](https://img.shields.io/badge/express-5.1-lightgrey)
-![CI](https://img.shields.io/github/actions/workflow/status/lucasdaniel2201/projeto-VG-Tech/ci.yml?label=CI)
+![Tests](https://img.shields.io/badge/tests-11%2F11-brightgreen)
 
 **API REST em Node.js + TypeScript + Express — boas práticas de backend moderno**
 
@@ -26,7 +26,7 @@ Projeto desenvolvido como **teste técnico** para vaga de estágio, evoluído pa
 - **Swagger** para documentação interativa da API em `/docs`
 - **Vitest** com 11 testes automatizados dos endpoints
 - **ESLint + Prettier** para qualidade e consistência de código
-- **CI com GitHub Actions** rodando lint, build e testes em múltiplas versões do Node
+- **Verificação de qualidade** com ESLint, TypeScript strict mode e 11 testes
 - **Docker** com build multi-stage para deploy leve
 - **Helmet + CORS + Morgan** para segurança e observabilidade
 
@@ -44,7 +44,6 @@ Projeto desenvolvido como **teste técnico** para vaga de estágio, evoluído pa
 | Testes | Vitest + Supertest |
 | Lint/Format | ESLint 10 + Prettier |
 | Segurança | Helmet 8 + CORS |
-| CI/CD | GitHub Actions |
 | Container | Docker multi-stage |
 
 ---
