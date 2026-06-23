@@ -1,24 +1,22 @@
-import express from 'express';
-import helmet from 'helmet';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import router from './routes/';
+import { createApp } from './app.js';
+import { logger } from './utils/logger.js';
 
+/**
+ * Bootstrap da aplicação.
+ * Responsável apenas por iniciar o servidor HTTP.
+ */
+function bootstrap(): void {
+  const app = createApp();
+  const port = Number(process.env.PORT) || 3000;
 
+  app.listen(port, () => {
+    logger.info(`Servidor rodando em http://localhost:${port}`);
+    logger.info(`Health check: http://localhost:${port}/health`);
 
-const app = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+    if (process.env.NODE_ENV !== 'production') {
+      logger.info(`Documentação: http://localhost:${port}/docs`);
+    }
+  });
+}
 
-app.use(helmet());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '../public')));
-
-app.use('/', router);
-
-app.listen(2000, () => {
-  console.log('Servidor está rodando no link: http://localhost:2000');
-  console.log(`Conectando ao google drive com o TOKEN: ${process.env.GOOGLE_DRIVE_TOKEN}`);
-});
-
+bootstrap();

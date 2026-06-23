@@ -1,15 +1,57 @@
 {
-  "name": "projeto-node",
+  "name": "vg-tech-api",
   "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "Lucas",
-  "type": "commonjs",
-  "main": "server.ts",
+  "description": "API REST em Node.js + TypeScript + Express — demonstrando boas práticas de backend com validação, testes e documentação interativa",
+  "license": "MIT",
+  "author": {
+    "name": "Lucas Daniel",
+    "email": "lucasdaniel2201@gmail.com",
+    "url": "https://github.com/lucasdaniel2201"
+  },
+  "type": "module",
+  "main": "dist/server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucasdaniel2201/projeto-VG-Tech"
+  },
+  "bugs": {
+    "url": "https://github.com/lucasdaniel2201/projeto-VG-Tech/issues"
+  },
+  "homepage": "https://github.com/lucasdaniel2201/projeto-VG-Tech#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "nodejs",
+    "typescript",
+    "express",
+    "zod",
+    "swagger",
+    "vitest",
+    "backend",
+    "estudo"
+  ],
   "scripts": {
+    "dev": "tsx watch --env-file=.env src/server.ts",
     "build": "tsc",
-    "start": "nodemon --exec node --env-file=.env --import=tsx ./src/server.ts",
-    "startjs": "nodemon --exec node --env-file=.env --import=tsx ./src/server.ts"
+    "start": "node --env-file=.env dist/server.js",
+    "lint": "eslint src/ tests/",
+    "lint:fix": "eslint src/ tests/ --fix",
+    "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "morgan": "^1.11.0",
+    "swagger-ui-express": "^5.0.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
@@ -26,13 +68,5 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.62.0",
     "vitest": "^4.1.9"
-  },
-  "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^5.1.0",
-    "helmet": "^8.1.0",
-    "morgan": "^1.11.0",
-    "swagger-ui-express": "^5.0.1",
-    "zod": "^4.4.3"
   }
 }

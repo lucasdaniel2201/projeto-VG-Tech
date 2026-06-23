@@ -1,22 +1,19 @@
-import express from 'express';
-import produtosRouter from './produtos';
-import voosRouter from './voos';
+import { Router } from 'express';
+import { getRoot } from '../controllers/root.controller.js';
+import produtosRouter from './produtos.routes.js';
+import voosRouter from './voos.routes.js';
+import healthRouter from './health.routes.js';
 
+const router = Router();
 
-const router = express.Router();
+// Rota raiz — info do dev
+router.get('/', getRoot);
 
-
-
-router.use('/voos', voosRouter);
+// Módulos de domínio
 router.use('/produtos', produtosRouter);
+router.use('/voos', voosRouter);
 
-router.get('/', (req, res) => {
-  let name: string = 'Lucas';
-  let age: number = 24;
-
-  res.json({ name, age });
-});
-
-
+// Health check
+router.use('/health', healthRouter);
 
 export default router;
