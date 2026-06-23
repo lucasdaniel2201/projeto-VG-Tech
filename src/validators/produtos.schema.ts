@@ -5,7 +5,7 @@ import { z } from 'zod';
  */
 export const produtoIdSchema = z.object({
   id: z
-    .string({ required_error: 'ID do produto é obrigatório' })
+    .string({ message: 'ID do produto é obrigatório' })
     .trim()
     .min(1, 'ID do produto não pode estar vazio'),
 });
