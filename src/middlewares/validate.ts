@@ -29,10 +29,7 @@ export function validate(
             message: string;
           }>;
           formattedMessage = issues
-            .map(
-              (e) =>
-                `${e.path.length ? e.path.join('.') + ': ' : ''}${e.message}`,
-            )
+            .map((e) => `${e.path.length ? e.path.join('.') + ': ' : ''}${e.message}`)
             .join('; ');
         } catch {
           formattedMessage = result.error.message;

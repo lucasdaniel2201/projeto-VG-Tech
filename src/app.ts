@@ -23,9 +23,7 @@ export function createApp(): express.Application {
   app.use(express.urlencoded({ extended: true }));
 
   // Logs HTTP (formato dev no ambiente dev, combined em produção)
-  app.use(
-    morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'),
-  );
+  app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
   // Arquivos estáticos (landing page em public/)
   app.use(express.static(paths.public));
