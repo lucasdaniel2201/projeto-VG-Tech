@@ -259,7 +259,7 @@ Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) par
   <strong>Lucas Daniel</strong>
   <br />
   <a href="https://github.com/lucasdaniel2201">GitHub</a> &bull;
-  <a href="https://linkedin.com/in/lucasdaniel2201">LinkedIn</a>
+  <a href="https://linkedin.com/in/lucas-santos-a620011b9/">LinkedIn</a>
   <br /><br />
   <em>Projeto de portfólio — feedbacks e contribuições são bem-vindos!</em>
 </div>
